@@ -1,0 +1,24 @@
+<form name="form" novalidate>
+  <div class="row">
+    <div class="large-12 columns">
+      <label ng-class="{error: form.title.$dirty && form.title.$invalid}">Title
+        <input ng-class="{error: form.title.$dirty && form.title.$invalid}" ng-model="auction.title" type="text" name="title" required placeholder="Enter your item title here" />
+      </label>
+      <small ng-show="form.title.$dirty && form.title.$invalid" class="error">
+        <span ng-show="form.title.$error.required">Title is required</span>
+      </small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Description
+        <textarea ng-model="auction.description" name="description" placeholder="Enter your item description here"></textarea>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-1 columns">
+      <input type="submit" class="button" value="Save" ng-click="save(auction)" ng-disabled="form.$invalid"/>
+    </div>
+  </div>
+</form>

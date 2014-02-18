@@ -21,9 +21,21 @@
     <!-- endbuild -->
   </head>
   <body ng-app="silentAuctionApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Silent Auction</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a href="#/auctions/new">Add New Auction</a></li>
+        </ul>
+      </section>
+    </nav>
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
@@ -45,6 +57,8 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <!-- bower:js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -56,8 +70,6 @@
     <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="bower_components/foundation/js/foundation.js"></script>
     <!-- endbower -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->

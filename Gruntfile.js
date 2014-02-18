@@ -349,9 +349,23 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    protractor: {
+      options: {
+        configFile: "protractor.conf.js", // Default config file
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+          verbose: true,
+          params: {
+            baseURL: "http://localhost:9000/"
+          }
+        }
+      },
+      all: {}
     }
   });
-
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -380,6 +394,11 @@ module.exports = function (grunt) {
     'connect:test',
     'karma'
   ]);
+
+  grunt.registerTask('functest', function() {
+    
+    grunt.task.run(['protractor:all']);
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
