@@ -364,6 +364,28 @@ module.exports = function (grunt) {
         }
       },
       all: {}
+    },
+
+    exec: {
+      start_django: {
+        command: './scripts/test_django.sh start',
+        stdout: true
+      },
+
+      kill_django: {
+        command: './scripts/test_django.sh stop',
+        stdout: true
+      },
+
+      start_grunt_serve: {
+        command: './scripts/grunt_serve.sh start',
+        stdout: true
+      },
+
+      stop_grunt_serve: {
+        command: './scripts/grunt_serve.sh stop',
+        stdout: true
+      }
     }
   });
 
@@ -396,8 +418,10 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('functest', function() {
-    
-    grunt.task.run(['protractor:all']);
+
+    grunt.task.run(['exec:start_django', 'exec:start_grunt_serve',
+                   'protractor:all', 'exec:stop_grunt_serve',
+                   'exec:kill_django']);
   });
 
   grunt.registerTask('build', [
