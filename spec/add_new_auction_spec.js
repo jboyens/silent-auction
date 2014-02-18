@@ -1,6 +1,6 @@
 describe('Add New Auction', function() {
   beforeEach(function() {
-    browser.get(browser.params.baseURL + '/');
+    browser.get('/');
   });
 
   it('should not display any auctions by default', function() {

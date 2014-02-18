@@ -353,13 +353,13 @@ module.exports = function (grunt) {
 
     protractor: {
       options: {
-        configFile: "protractor.conf.js", // Default config file
+        configFile: 'protractor.conf.js', // Default config file
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false, // If true, protractor will not use colors in its output.
         args: {
           verbose: true,
           params: {
-            baseURL: "http://localhost:9000/"
+            baseURL: 'http://localhost:9000/'
           }
         }
       },
@@ -367,22 +367,22 @@ module.exports = function (grunt) {
     },
 
     exec: {
-      start_django: {
+      startDjango: {
         command: './scripts/test_django.sh start',
         stdout: true
       },
 
-      kill_django: {
+      killDjango: {
         command: './scripts/test_django.sh stop',
         stdout: true
       },
 
-      start_grunt_serve: {
+      startGruntServe: {
         command: './scripts/grunt_serve.sh start',
         stdout: true
       },
 
-      stop_grunt_serve: {
+      stopGruntServe: {
         command: './scripts/grunt_serve.sh stop',
         stdout: true
       }
@@ -419,9 +419,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('functest', function() {
 
-    grunt.task.run(['exec:start_django', 'exec:start_grunt_serve',
-                   'protractor:all', 'exec:stop_grunt_serve',
-                   'exec:kill_django']);
+    grunt.task.run(['exec:startDjango', 'exec:startGruntServe',
+                   'protractor:all', 'exec:stopGruntServe',
+                   'exec:killDjango']);
   });
 
   grunt.registerTask('build', [

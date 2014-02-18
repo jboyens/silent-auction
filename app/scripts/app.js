@@ -21,11 +21,11 @@ angular.module('silentAuctionApp', [
       });
   })
   .factory('Auction', function($resource) {
-    return $resource('http://localhost:8000/api/auctions\\/', {}, {
+    return $resource('http://localhost:8000/api/auctions', {}, {
       'get':    {method:'GET'},
-      'save':   {method:'POST', headers: {'Authorization': 'Token 4ffb7c1f15605d98c244a4f88fe83fef4dd3a565'}},
+      'save':   {method:'POST', headers: {'Authorization': 'Token ef98650e6630ac0ce071f3058920d76dc0ddf883'}},
       'query':  {method:'GET', isArray:true},
-      'remove': {method:'DELETE', headers: {'Authorization': 'Token 4ffb7c1f15605d98c244a4f88fe83fef4dd3a565'}},
-      'delete': {method:'DELETE', headers: {'Authorization': 'Token 4ffb7c1f15605d98c244a4f88fe83fef4dd3a565'}},
+      'remove': {method:'DELETE', headers: {'Authorization': 'Token ef98650e6630ac0ce071f3058920d76dc0ddf883'}},
+      'delete': {method:'DELETE', headers: {'Authorization': 'Token ef98650e6630ac0ce071f3058920d76dc0ddf883'}},
     });
   });
